@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Статистичний аналіз</title>
+</head>
+<body>
+    <h1>Статистичний аналіз вагонів за роками виробництва</h1>
+
+    {% if statistics %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Метрика</th>
+                    <th>Значення</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Середнє</td>
+                    <td>{{ statistics.mean }}</td>
+                </tr>
+                <tr>
+                    <td>Медіана</td>
+                    <td>{{ statistics.median }}</td>
+                </tr>
+                <tr>
+                    <td>Мінімум</td>
+                    <td>{{ statistics.min }}</td>
+                </tr>
+                <tr>
+                    <td>Максимум</td>
+                    <td>{{ statistics.max }}</td>
+                </tr>
+            </tbody>
+        </table>
+    {% else %}
+        <p>Дані для статистичного аналізу відсутні.</p>
+    {% endif %}
+</body>
+</html>

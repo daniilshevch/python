@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стовпчикова діаграма станцій у маршрутах</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Стовпчикова діаграма: Кількість станцій у маршрутах</h1>
+    <div id="plotly_chart" style="width:100%; height:500px;"></div>
+
+    <script>
+        const graphData = JSON.parse(`{{ graph_json|escapejs }}`);
+        Plotly.newPlot('plotly_chart', graphData.data, graphData.layout);
+    </script>
+</body>
+</html>

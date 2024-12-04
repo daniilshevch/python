@@ -1,0 +1,11 @@
+<h1>Список пасажирських вагонів</h1>
+<ul>
+    {% for carriage in carriages %}
+        <li>
+            <a href="{% url 'passenger_carriage_detail' carriage.CarriageID %}">
+                {{ carriage.CarriageID }} - {{ carriage.TypeOf }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'passenger_carriage_add' %}">Додати вагон</a>

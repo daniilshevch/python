@@ -1,0 +1,9 @@
+<h1>Деталі вагону</h1>
+<p>ID: {{ carriage.CarriageID }}</p>
+<p>Тип: {{ carriage.TypeOf }}</p>
+<p>Виробник: {{ carriage.Manufacturer }}</p>
+<p>Рік виробництва: {{ carriage.ProductionYear }}</p>
+<p>Місткість: {{ carriage.Capacity }}</p>
+<p>Інформація про оновлення: {{ carriage.RenewalInfo }}</p>
+<p>Кондиціонер: {{ carriage.AirConditioning }}</p>
+<a href="{% url 'passenger_carriage_edit' carriage.CarriageID %}">Редагувати</a>
