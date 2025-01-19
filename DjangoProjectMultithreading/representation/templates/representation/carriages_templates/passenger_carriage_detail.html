@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі вагону</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Деталі вагону</h1>
+        <p><strong>ID:</strong> {{ carriage.CarriageID }}</p>
+        <p><strong>Тип:</strong> {{ carriage.TypeOf }}</p>
+        <p><strong>Виробник:</strong> {{ carriage.Manufacturer }}</p>
+        <p><strong>Рік виробництва:</strong> {{ carriage.ProductionYear }}</p>
+        <p><strong>Місткість:</strong> {{ carriage.Capacity }}</p>
+        <p><strong>Інформація про оновлення:</strong> {{ carriage.RenewalInfo }}</p>
+        <p><strong>Кондиціонер:</strong> {{ carriage.AirConditioning }}</p>
+        <div class="actions">
+            <a href="{% url 'passenger_carriage_edit' carriage.CarriageID %}" class="edit-btn">Редагувати</a>
+            <a href="{% url 'carriages_get' %}" class="back-btn">Назад до списку</a>
+        </div>
+    </div>
+</body>
+</html>

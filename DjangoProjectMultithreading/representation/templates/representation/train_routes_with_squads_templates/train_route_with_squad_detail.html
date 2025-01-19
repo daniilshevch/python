@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі TrainRouteWithSquadOnDate</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Деталі TrainRouteWithSquadOnDate</h1>
+        <p><strong>ID:</strong> {{ train_route_with_squad.FullTrainIdentificator }}</p>
+        <p><strong>Маршрут:</strong> {{ train_route_with_squad.TrainRouteID }}</p>
+        <p><strong>Склад поїзда:</strong> {{ train_route_with_squad.TrainSquadID }}</p>
+        <p><strong>Дата відправлення:</strong> {{ train_route_with_squad.DepartureDate }}</p>
+        <p><strong>Дата прибуття:</strong> {{ train_route_with_squad.ArrivalDate }}</p>
+        <a href="{% url 'train_route_with_squad_edit' train_route_with_squad.FullTrainIdentificator %}" class="edit-link">Редагувати</a>
+        <a href="{% url 'train_routes_with_squads_get' %}" class="back-btn">Назад до списку</a>
+    </div>
+</body>
+</html>

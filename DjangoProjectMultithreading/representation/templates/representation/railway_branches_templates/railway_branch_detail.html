@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі філії</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Деталі філії</h1>
+        <p><strong>ID:</strong> {{ branch.RailwayBranchID }}</p>
+        <p><strong>Назва:</strong> {{ branch.Title }}</p>
+        <p><strong>Локація офісу:</strong> {{ branch.OfficeLocation }}</p>
+        <a href="{% url 'railway_branch_edit' branch.RailwayBranchID %}" class="edit-link">Редагувати</a>
+        <a href="{% url 'railway_branches_get' %}" class="back-btn">Назад до списку</a>
+    </div>
+</body>
+</html>

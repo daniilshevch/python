@@ -1,0 +1,56 @@
+.menu-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px; /* Збільшено ширину контейнера */
+    margin: 50px auto;
+    padding: 40px; /* Збільшено відступи */
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 12px; /* Трохи більше закруглення */
+}
+
+.menu-buttons {
+    flex: 1;
+    margin-right: 40px; /* Збільшено відступ між кнопками і зображеннями */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Збільшено відстань між кнопками */
+}
+
+.menu-buttons h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px; /* Більший відступ між заголовком і кнопками */
+    font-size: 36px; /* Збільшено розмір заголовка */
+}
+
+.menu-btn {
+    display: block;
+    padding: 15px 30px; /* Збільшено розмір кнопок */
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    background-color: #3498db;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 18px; /* Збільшено текст кнопок */
+}
+
+.menu-btn:hover {
+    background-color: #2980b9;
+}
+
+.menu-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Збільшено відстань між зображеннями */
+}
+
+.menu-images img {
+    width: 400px; /* Збільшено ширину картинок */
+    height: auto; /* Пропорційна висота */
+    border-radius: 12px; /* Трохи більше закруглення */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Більша тінь для картинок */
+}

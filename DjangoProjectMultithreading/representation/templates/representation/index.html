@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Representation Dashboard</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+    <style>
+        .dashboard-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .dashboard-content {
+            flex: 2;
+        }
+
+        .dashboard-title {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .dashboard-list li {
+            margin: 10px 0;
+        }
+
+        .dashboard-link {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .dashboard-link:hover {
+            color: #2ecc71;
+        }
+
+        .dashboard-image {
+            flex: 1;
+            margin-left: 20px;
+        }
+
+        .dashboard-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .dashboard-extra-button {
+            margin-top: 20px; /* Відступ зверху від списку */
+            text-align: center; /* Центрування кнопки */
+        }
+
+        .extra-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #e74c3c; /* Червоний фон */
+            color: #fff; /* Білий текст */
+            text-decoration: none;
+            border-radius: 6px; /* Закруглені кути */
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        .extra-btn:hover {
+            background-color: #c0392b; /* Темніший червоний при наведенні */
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-content">
+            <h1 class="dashboard-title">Дашборд моделей</h1>
+            <ul class="dashboard-list">
+                <li><a href="/representation/carriages/" class="dashboard-link">Пасажирські вагони</a></li>
+                <li><a href="/representation/train_routes/" class="dashboard-link">Маршрути поїздів</a></li>
+                <li><a href="/representation/train_squads/" class="dashboard-link">Рухомий склад поїздів(групи вагонів)</a></li>
+                <li><a href="/representation/stations/" class="dashboard-link">Станції</a></li>
+                <li><a href="/representation/train_routes_with_squads/" class="dashboard-link">Призначення рухомого складу на маршрути</a></li>
+                <li><a href="/representation/railway_branches/" class="dashboard-link">Філії залізниці</a></li>
+            </ul>
+            <div class="dashboard-extra-button">
+                <a href="/representation/menu" class="extra-btn">В ГОЛОВНЕ МЕНЮ</a>
+            </div>
+        </div>
+        <div class="dashboard-image">
+            <img src="https://gdb.rferl.org/ffc6be11-b94a-4061-b91f-0da891968bc6_w408_r1_s.jpg" alt="Dashboard Image">
+        </div>
+    </div>
+</body>
+</html>

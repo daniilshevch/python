@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphs list</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .button {
+            display: block;
+            text-decoration: none;
+            padding: 15px;
+            text-align: center;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        .extra-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .purple-button {
+            display: block;
+            width: 100%; /* Займає весь простір контейнера */
+            max-width: 700px; /* Оптимальна ширина кнопки */
+            margin: 0 auto; /* Центрування кнопки */
+            padding: 10px 20px;
+            background-color: #8e44ad;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .purple-button:hover {
+            background-color: #732d91;
+        }
+
+        .back-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>МЕНЮ ГРАФІКІВ</h1>
+        <div class="button-grid">
+            <a href="/analytics/plotly_carriage_by_manufacturer_and_type" class="button">Вагони за типом і виробником(Plotly)</a>
+            <a href="/analytics/bokeh_carriages_by_manufacturer_and_type/" class="button">Вагони за типом і виробником(Bokeh)</a>
+            <a href="/analytics/plotly_carriage_by_year/" class="button">Вагони за роками виробництва(Plotly)</a>
+            <a href="/analytics/bokeh_carriage_by_year/" class="button">Вагони за роками виробництва(Bokeh)</a>
+            <a href="/analytics/plotly_railway_branches_by_stations" class="button">Залізничні філії за кількістю станцій(Plotly)</a>
+            <a href="/analytics/bokeh_railway_branches_by_stations/" class="button">Залізничні філії за кількістю станцій(Bokeh)</a>
+            <a href="/analytics/plotly_station_by_time" class="button">Станції поїздів за тривалістю стоянки(Plotly)</a>
+            <a href="/analytics/bokeh_station_by_time/" class="button">Станції поїздів за тривалістю стоянки(Bokeh)</a>
+            <a href="/analytics/plotly_stations_of_train" class="button">Кількість станцій, через які проходять поїзди(Plotly)</a>
+            <a href="/analytics/bokeh_stations_of_train/" class="button">Кількість станцій, через які проходять поїзди(Bokeh)</a>
+            <a href="/analytics/plotly_trains_on_station" class="button">Кількість поїздів, що проходять повз станцію(Plotly)</a>
+            <a href="/analytics/bokeh_trains_on_station/" class="button">Кількість поїздів, що проходять повз станцію(Bokeh)</a>
+            <a href="/analytics/plotly_carriage_by_year_interactive/" class="button">Інтерактивний графік Plotly</a>
+            <a href="/analytics/carriages_by_manufacturer_and_type_interactive" class="button">Інтерактивний графік Bokeh</a>
+            <a href="/analytics/all_graphs/" class="button">Консолідація графіків(Plotly)</a>
+            <a href="/analytics/all_bokeh_graphs/" class="button">Консолідація графіків(Bokeh)</a>
+        </div>
+
+        <div class="extra-button-container">
+            <a href="/analytics/multithreading_dashboard/" class="purple-button">Дослідження багатопоточного доступу до бази даних</a>
+        </div>
+
+        <div class="back-button-container">
+            <a href="/representation/menu" class="back-button">Повернутися в головне меню</a>
+        </div>
+    </div>
+</body>
+</html>

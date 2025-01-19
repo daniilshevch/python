@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Операції для TrainRoute</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Операції для TrainRoute</h1>
+        <ul>
+            <li><a href="{% url 'train_routes_get' %}">GET (всі маршрути)</a></li>
+            <li><a href="{% url 'train_routes_get_by_id' %}">GET (маршрут за ID)</a></li>
+            <li><a href="{% url 'train_routes_post' %}">POST (додати новий маршрут)</a></li>
+            <li><a href="{% url 'train_routes_put' %}">PUT (оновити маршрут)</a></li>
+            <li><a href="{% url 'train_routes_delete' %}">DELETE (видалити маршрут)</a></li>
+        </ul>
+        <a href="/representation" class="back-btn">Повернутись на головну</a>
+    </div>
+</body>
+</html>

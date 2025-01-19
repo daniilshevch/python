@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список маршрутів</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Список маршрутів</h1>
+        <ul class="route-list">
+            {% for route in routes %}
+            <li>
+                <a href="{% url 'train_route_detail' route.TrainRouteID %}" class="detail-link">
+                    {{ route.NumberCode }} - {{ route.FullConnectionName }}
+                </a>
+                |
+                <a href="{% url 'train_route_edit' route.TrainRouteID %}" class="edit-link">Редагувати</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'train_route_add' %}" class="add-btn">Додати маршрут</a>
+        <a href="{% url 'train_routes' %}" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

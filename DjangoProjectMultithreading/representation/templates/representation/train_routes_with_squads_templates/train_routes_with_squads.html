@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrainRouteWithSquad Operations</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Операції для TrainRouteWithSquadOnDate</h1>
+        <ul>
+            <li><a href="{% url 'train_routes_with_squads_get' %}">GET (всі записи)</a></li>
+            <li><a href="{% url 'train_routes_with_squads_get_by_id' %}">GET (запис за ID)</a></li>
+            <li><a href="{% url 'train_routes_with_squads_post' %}">POST (додати новий запис)</a></li>
+            <li><a href="{% url 'train_routes_with_squads_put' %}">PUT (оновити запис)</a></li>
+            <li><a href="{% url 'train_routes_with_squads_delete' %}">DELETE (видалити запис)</a></li>
+        </ul>
+        <a href="/representation" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

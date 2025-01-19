@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список станцій</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Список станцій</h1>
+        <ul class="station-list">
+            {% for station in stations %}
+            <li>
+                <a href="{% url 'station_detail' station.StationID %}" class="detail-link">
+                    {{ station.StationID }} - {{ station.Title }}
+                </a>
+                |
+                <a href="{% url 'station_edit' station.StationID %}" class="edit-link">Редагувати</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'station_add' %}" class="add-btn">Додати станцію</a>
+        <a href="{% url 'stations' %}" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

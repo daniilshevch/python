@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список записів TrainRouteWithSquadOnDate</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Список записів TrainRouteWithSquadOnDate</h1>
+        <ul class="record-list">
+            {% for record in train_routes_with_squads %}
+            <li>
+                <a href="{% url 'train_route_with_squad_detail' record.FullTrainIdentificator %}" class="detail-link">
+                    {{ record.FullTrainIdentificator }} - {{ record.TrainRouteID }}
+                </a>
+                |
+                <a href="{% url 'train_route_with_squad_edit' record.FullTrainIdentificator %}" class="edit-link">Редагувати</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'train_route_with_squad_add' %}" class="add-btn">Додати запис</a>
+        <a href="{% url 'train_routes_with_squads' %}" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

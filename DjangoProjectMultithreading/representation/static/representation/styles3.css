@@ -1,0 +1,61 @@
+/* Загальний стиль */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Контейнер сторінки */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Заголовок */
+.container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+/* Сітка для кнопок */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 стовпчика */
+    gap: 15px; /* Відстань між кнопками */
+}
+
+/* Стиль для кнопок */
+.button {
+    display: inline-block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #3498db;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Ефекти при наведенні */
+.button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px); /* Легке підняття */
+}
+
+/* Адаптивність для мобільних */
+@media (max-width: 600px) {
+    .button-grid {
+        grid-template-columns: 1fr; /* 1 стовпчик на мобільних */
+    }
+}

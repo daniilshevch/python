@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Всі графіки Bokeh</title>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.js"></script>
+    <link href="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.css" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+        }
+        .red-button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .red-button:hover {
+            background-color: #c0392b;
+        }
+        .blue-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .blue-button:hover {
+            background-color: #2980b9;
+        }
+        .graph-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .graph-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .bokeh-plot {
+            width: 100%;
+            height: 500px;
+        }
+        .table-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .table-container h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+            text-align: center;
+        }
+        .table-striped tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <a href="/representation/graph_menu/" class="red-button">Назад до списку графіків</a>
+        <a href="/analytics/all_bokeh_graphs_linear/" class="blue-button">Показ в іншому форматі</a>
+    </div>
+    <h1>Всі графіки Bokeh</h1>
+
+    <div class="graph-container">
+        <h2>Вагони за роками виробництва</h2>
+        <div id="plot1" class="bokeh-plot">
+            {{ div1|safe }}
+        </div>
+        <script>
+            {{ script1|safe }}
+            {{ script1|safe }}
+        </script>
+    </div>
+
+    <div class="graph-container">
+        <h2>Виробники та типи вагонів</h2>
+        <div id="plot2" class="bokeh-plot">
+            {{ div2|safe }}
+        </div>
+        <script>
+            {{ script2|safe }}
+            {{ script2|safe }}
+        </script>
+    </div>
+
+    <div class="graph-container">
+        <h2>Кількість станцій у залізничних гілках</h2>
+        <div id="plot3" class="bokeh-plot">
+            {{ div3|safe }}
+        </div>
+        <script>
+            {{ script3|safe }}
+            {{ script3|safe }}
+        </script>
+    </div>
+
+    <div class="graph-container">
+        <h2>Кількість унікальних потягів на станціях</h2>
+        <div id="plot4" class="bokeh-plot">
+            {{ div4|safe }}
+        </div>
+        <script>
+            {{ script4|safe }}
+            {{ script4|safe }}
+        </script>
+    </div>
+
+    <div class="graph-container">
+        <h2>Кількість станцій у маршрутах</h2>
+        <div id="plot5" class="bokeh-plot">
+            {{ div5|safe }}
+        </div>
+        <script>
+            {{ script5|safe }}
+            {{ script5|safe }}
+        </script>
+    </div>
+
+    <div class="graph-container">
+        <h2>Кількість зупинок залежно від тривалості стоянки</h2>
+        <div id="plot6" class="bokeh-plot">
+            {{ div6|safe }}
+        </div>
+        <script>
+            {{ script6|safe }}
+            {{ script6|safe }}
+        </script>
+    </div>
+
+    <div class="table-container">
+        <h2>Статистичні показники для року виготовлення вагонів</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Показник</th>
+                    <th>Значення</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Кількість варіацій року</td>
+                    <td>{{ statistics.count }}</td>
+                </tr>
+                <tr>
+                    <td>Середнє значення</td>
+                    <td>{{ statistics.mean }}</td>
+                </tr>
+                <tr>
+                    <td>Медіана</td>
+                    <td>{{ statistics.median }}</td>
+                </tr>
+                <tr>
+                    <td>Мінімальне значення</td>
+                    <td>{{ statistics.min }}</td>
+                </tr>
+                <tr>
+                    <td>Максимальне значення</td>
+                    <td>{{ statistics.max }}</td>
+                </tr>
+                <tr>
+                    <td>Дисперсія</td>
+                    <td>{{ statistics.variance }}</td>
+                </tr>
+                <tr>
+                    <td>Стандартне відхилення</td>
+                    <td>{{ statistics.std }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET запис за ID</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Отримати запис за ID</h1>
+        <form method="get" class="form-container">
+            <label for="id">Введіть ID запису:</label>
+            <input type="number" id="id" name="id" required>
+            <button type="submit" class="submit-btn">Шукати</button>
+        </form>
+        {% if train_route_with_squad %}
+            <h2>Результат:</h2>
+            <p>ID: {{ train_route_with_squad.FullTrainIdentificator }}</p>
+            <p>Маршрут: {{ train_route_with_squad.TrainRouteID }}</p>
+            <p>Склад поїзда: {{ train_route_with_squad.TrainSquadID }}</p>
+            <p>Дата відправлення: {{ train_route_with_squad.DepartureDate }}</p>
+            <p>Дата прибуття: {{ train_route_with_squad.ArrivalDate }}</p>
+            <a href="{% url 'train_route_with_squad_edit' train_route_with_squad.FullTrainIdentificator %}" class="edit-link">Редагувати</a>
+        {% elif error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+        <a href="{% url 'train_routes_with_squads' %}" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

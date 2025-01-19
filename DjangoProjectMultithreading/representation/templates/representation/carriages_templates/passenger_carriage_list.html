@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список вагонів</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+
+        <a href="{% url 'carriages' %}" class="operation-btn">Список операцій</a>
+
+        <h1>Список пасажирських вагонів</h1>
+
+
+        <ul class="carriage-list">
+            {% for carriage in carriages %}
+            <li>
+                <a href="{% url 'passenger_carriage_detail' carriage.CarriageID %}" class="detail-link">
+                    {{ carriage.CarriageID }} - {{ carriage.TypeOf }}
+                </a>
+                |
+                <a href="{% url 'passenger_carriage_edit' carriage.CarriageID %}" class="edit-link">Редагувати</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+
+        <a href="{% url 'passenger_carriage_add' %}" class="add-btn">Додати вагон</a>
+        <a href="/representation" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

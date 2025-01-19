@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графік Вагони за роками виробництва</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Графік Вагони за роками виробництва</h1>
+
+    <div id="plotly-graph" style="width: 100%; height: 500px;"></div>
+
+    <div>
+        <button onclick="filterData(5)">Останні 5 років</button>
+        <button onclick="filterData(10)">Останні 10 років</button>
+        <button onclick="filterData('all')">Усі роки</button>
+    </div>
+
+
+    <div style="margin-top: 20px;">
+        <label for="year-slider">Фільтрувати до року:</label>
+        <input type="range" id="year-slider" min="2000" max="2020" value="2020" oninput="updateSliderValue(this.value)" />
+        <span id="slider-value">2020</span>
+        <button onclick="updateGraph()">Оновити графік</button>
+    </div>
+
+    <script>
+        const graphJSON = {{ graph_json|safe }};
+
+        Plotly.newPlot('plotly-graph', graphJSON.data, graphJSON.layout);
+
+        function updateGraph() {
+            const year = document.getElementById('year-slider').value;
+
+            const updatedData = graphJSON.data.map(trace => ({
+                ...trace,
+                x: trace.x.filter((_, i) => parseInt(trace.x[i]) <= year),
+                y: trace.y.filter((_, i) => parseInt(trace.x[i]) <= year),
+            }));
+
+            Plotly.react('plotly-graph', updatedData, graphJSON.layout);
+        }
+
+        function updateSliderValue(value) {
+            document.getElementById('slider-value').textContent = value;
+        }
+
+        function filterData(period) {
+            const currentYear = new Date().getFullYear();
+
+            let filteredData;
+            if (period === 'all') {
+                filteredData = graphJSON.data;
+            } else {
+                filteredData = graphJSON.data.map(trace => ({
+                    ...trace,
+                    x: trace.x.filter((_, i) => parseInt(trace.x[i]) >= currentYear - period),
+                    y: trace.y.filter((_, i) => parseInt(trace.x[i]) >= currentYear - period),
+                }));
+            }
+
+            Plotly.react('plotly-graph', filteredData, graphJSON.layout);
+        }
+    </script>
+</body>
+</html>

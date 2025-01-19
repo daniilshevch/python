@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі станції</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Деталі станції</h1>
+        <p><strong>ID:</strong> {{ station.StationID }}</p>
+        <p><strong>Назва:</strong> {{ station.Title }}</p>
+        <p><strong>Тип:</strong> {{ station.TypeOf }}</p>
+        <p><strong>ID залізничної філії:</strong> {{ station.RailwayBranchID }}</p>
+        <p><strong>Депо вагонів:</strong> {{ station.CarriageDepaut }}</p>
+        <p><strong>Депо локомотивів:</strong> {{ station.LocomotiveDepaut }}</p>
+        <a href="{% url 'station_edit' station.StationID %}" class="edit-link">Редагувати</a>
+        <a href="{% url 'stations_get' %}" class="back-btn">Назад до списку</a>
+    </div>
+</body>
+</html>

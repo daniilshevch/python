@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результати експериментів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .column {
+            flex: 1;
+            margin: 10px;
+            max-width: 48%; /* Забезпечує місце для обох блоків */
+        }
+        .graph-container {
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .table-container {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        .table th {
+            background-color: #3498db;
+            color: white;
+        }
+        .table-striped tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .blue-button, .red-button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        a.red-button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #e74c3c;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+a.red-button:hover {
+    background-color: #c0392b;
+}
+        .red-button {
+            background-color: #e74c3c;
+        }
+        .blue-button:hover {
+            background-color: #2980b9;
+        }
+        .red-button:hover {
+            background-color: #c0392b;
+        }
+        #loading-indicator {
+            display: none;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #3498db;
+        }
+        #refresh-button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Результати експериментів на дослідження багатопоточності</h1>
+    <div class="row">
+        <div class="column graph-container">
+            <h2>Графік багатопоточності</h2>
+            <div id="graph-container">
+                {{ graph|safe }}
+            </div>
+        </div>
+        <div class="column table-container">
+            <h2>Таблиця результатів</h2>
+            <div id="table-container">
+                {{ table|safe }}
+            </div>
+        </div>
+    </div>
+    <div class="button-container">
+        <button id="refresh-button" class="blue-button">Оновити графік</button>
+        <a href="/representation/graph_menu/" class="red-button">Назад до списку графіків</a>
+        <div id="loading-indicator">Проводиться аналіз підключення до бази даних(очікування операції - до 40 секунд)...</div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#refresh-button").click(function() {
+
+            $("#loading-indicator").show();
+            $("#refresh-button").prop("disabled", true);
+
+            $.ajax({
+                url: "{% url 'refresh_dashboard_data' %}",
+                method: "GET",
+                success: function(data) {
+                    // Оновлення графіка і таблиці
+                    $("#graph-container").html(data.graph);
+                    $("#table-container").html(data.table);
+                },
+                error: function() {
+                    alert("Сталася помилка під час оновлення даних.");
+                },
+                complete: function() {
+
+                    $("#loading-indicator").hide();
+                    $("#refresh-button").prop("disabled", false);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

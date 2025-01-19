@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Всі графіки Plotly</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f4f4f4;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-left {
+            background-color: red;
+        }
+
+        .btn-right {
+            background-color: blue;
+        }
+
+        .graph-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .graph {
+            width: 100%;
+            height: 600px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background: #f9f9f9;
+            overflow: auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/representation/graph_menu/" class="btn btn-left">Назад до списку графіків</a>
+        <a href="/analytics/all_graphs" class="btn btn-right">Показ в іншому форматі</a>
+    </div>
+
+    <h1>Всі графіки Plotly</h1>
+
+    <div class="graph-container">
+        <div id="chart1" class="graph"></div>
+        <div id="chart2" class="graph"></div>
+        <div id="chart3" class="graph"></div>
+        <div id="chart4" class="graph"></div>
+        <div id="chart5" class="graph"></div>
+        <div id="chart6" class="graph"></div>
+    </div>
+
+    <script>
+        const charts = [
+            {id: 'chart1', data: JSON.parse(`{{ graph1_json|escapejs }}`)},
+            {id: 'chart2', data: JSON.parse(`{{ graph2_json|escapejs }}`)},
+            {id: 'chart3', data: JSON.parse(`{{ graph3_json|escapejs }}`)},
+            {id: 'chart4', data: JSON.parse(`{{ graph4_json|escapejs }}`)},
+            {id: 'chart5', data: JSON.parse(`{{ graph5_json|escapejs }}`)},
+            {id: 'chart6', data: JSON.parse(`{{ graph6_json|escapejs }}`)}
+        ];
+
+        charts.forEach(chart => {
+            Plotly.newPlot(chart.id, chart.data.data, chart.data.layout, {responsive: true});
+        });
+    </script>
+</body>
+</html>

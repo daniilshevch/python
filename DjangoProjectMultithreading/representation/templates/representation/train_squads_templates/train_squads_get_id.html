@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET склад поїзда за ID</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Отримати склад поїзда за ID</h1>
+        <form method="get" class="form-container">
+            <label for="id">Введіть ID складу:</label>
+            <input type="number" id="id" name="id" required>
+            <button type="submit" class="submit-btn">Шукати</button>
+        </form>
+        {% if train_squad %}
+            <h2>Результат:</h2>
+            <p>ID складу: {{ train_squad.TrainSquadID }}</p>
+            <p>Формуюча станція депо: {{ train_squad.FormingDepotStationID }}</p>
+            <a href="{% url 'train_squad_edit' train_squad.TrainSquadID %}" class="edit-link">Редагувати</a>
+        {% elif error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+        <a href="{% url 'train_squads' %}" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

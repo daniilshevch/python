@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Всі графіки Bokeh</title>
+    <script src="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.js"></script>
+    <link href="https://cdn.bokeh.org/bokeh/release/bokeh-3.6.1.min.css" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            background-color: #f1f1f1;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .button-container button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .button-container .red-button {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .button-container .red-button:hover {
+            background-color: #c0392b;
+        }
+        .button-container .blue-button {
+            background-color: #3498db;
+            color: white;
+        }
+        .button-container .blue-button:hover {
+            background-color: #2980b9;
+        }
+        .outer-container {
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 1800px;
+            margin: 0 auto;
+        }
+        .graph-container {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            width: 550px;
+            height: 550px;
+        }
+        .graph-container h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+        .bokeh-plot {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <a href="/representation/graph_menu/" class="red-button" style="display: inline-block; text-align: center; padding: 10px 20px; background-color: #e74c3c; color: white; border-radius: 5px; text-decoration: none;">Назад до списку графіків</a>
+        <a href="/analytics/all_bokeh_graphs/" class="blue-button" style="display: inline-block; text-align: center; padding: 10px 20px; background-color: #3498db; color: white; border-radius: 5px; text-decoration: none;">Показ в іншому форматі</a>
+    </div>
+
+    <h1>Всі графіки Bokeh</h1>
+    <div class="outer-container">
+        <div class="grid-container">
+            <div class="graph-container">
+                <h2>Вагони за роками виробництва</h2>
+                <div id="plot1" class="bokeh-plot">
+                    {{ div1|safe }}
+                </div>
+                <script>
+                    {{ script1|safe }}
+                    {{ script1|safe }}
+                </script>
+            </div>
+
+            <div class="graph-container">
+                <h2>Виробники та типи вагонів</h2>
+                <div id="plot2" class="bokeh-plot">
+                    {{ div2|safe }}
+                </div>
+                <script>
+                    {{ script2|safe }}
+                    {{ script2|safe }}
+                </script>
+            </div>
+
+            <div class="graph-container">
+                <h2>Кількість станцій у залізничних гілках</h2>
+                <div id="plot3" class="bokeh-plot">
+                    {{ div3|safe }}
+                </div>
+                <script>
+                    {{ script3|safe }}
+                    {{ script3|safe }}
+                </script>
+            </div>
+
+            <div class="graph-container">
+                <h2>Кількість унікальних потягів на станціях</h2>
+                <div id="plot4" class="bokeh-plot">
+                    {{ div4|safe }}
+                </div>
+                <script>
+                    {{ script4|safe }}
+                     {{ script4|safe }}
+                </script>
+            </div>
+
+            <div class="graph-container">
+                <h2>Кількість станцій у маршрутах</h2>
+                <div id="plot5" class="bokeh-plot">
+                    {{ div5|safe }}
+                </div>
+                <script>
+                    {{ script5|safe }}
+                    {{ script5|safe }}
+                </script>
+            </div>
+
+            <div class="graph-container">
+                <h2>Кількість зупинок залежно від тривалості стоянки</h2>
+                <div id="plot6" class="bokeh-plot">
+                    {{ div6|safe }}
+                </div>
+                <script>
+                    {{ script6|safe }}
+                     {{ script6|safe }}
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Всі графіки Plotly</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .btn {
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .btn-left {
+            background-color: red;
+        }
+
+        .btn-right {
+            background-color: blue;
+        }
+
+        .table-container {
+            margin: 20px auto;
+            max-width: 80%;
+            text-align: center;
+        }
+
+        .table {
+            margin: 0 auto;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/representation/graph_menu/" class="btn btn-left">Назад до списку графіків</a>
+        <a href="/analytics/all_graphs_linear" class="btn btn-right">Показ в іншому форматі</a>
+    </div>
+
+    <h1 style="text-align: center;">Всі графіки Plotly</h1>
+
+    <div class="graph-container">
+        <div id="chart1" class="graph"></div>
+        <div id="chart2" class="graph"></div>
+        <div id="chart3" class="graph"></div>
+        <div id="chart4" class="graph"></div>
+        <div id="chart5" class="graph"></div>
+        <div id="chart6" class="graph"></div>
+    </div>
+
+
+    <div class="table-container">
+        <h2>Статистичні показники для року виготовлення вагонів</h2>
+        {{ statistics_table|safe }}
+    </div>
+
+    <script>
+        const charts = [
+            {id: 'chart1', data: JSON.parse(`{{ graph1_json|escapejs }}`)},
+            {id: 'chart2', data: JSON.parse(`{{ graph2_json|escapejs }}`)},
+            {id: 'chart3', data: JSON.parse(`{{ graph3_json|escapejs }}`)},
+            {id: 'chart4', data: JSON.parse(`{{ graph4_json|escapejs }}`)},
+            {id: 'chart5', data: JSON.parse(`{{ graph5_json|escapejs }}`)},
+            {id: 'chart6', data: JSON.parse(`{{ graph6_json|escapejs }}`)}
+        ];
+
+        charts.forEach(chart => {
+            Plotly.newPlot(chart.id, chart.data.data, chart.data.layout, {responsive: true});
+        });
+    </script>
+</body>
+</html>
