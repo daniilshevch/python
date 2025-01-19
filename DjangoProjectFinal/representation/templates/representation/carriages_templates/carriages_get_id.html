@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET вагон за ID</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Отримати вагон за ID</h1>
+
+        <form method="get" class="form-container">
+            <label for="id" class="form-label">Введіть ID вагона:</label>
+            <input type="number" id="id" name="id" class="form-input" required>
+            <button type="submit" class="submit-btn">Шукати</button>
+        </form>
+
+        {% if carriage %}
+            <h2 class="result-title">Результат:</h2>
+            <div class="result-container">
+                <p><strong>ID:</strong> {{ carriage.CarriageID }}</p>
+                <p><strong>Тип:</strong> {{ carriage.TypeOf }}</p>
+                <p><strong>Виробник:</strong> {{ carriage.Manufacturer }}</p>
+                <p><strong>Рік виробництва:</strong> {{ carriage.ProductionYear }}</p>
+                <p><strong>Місткість:</strong> {{ carriage.Capacity }}</p>
+                <p><strong>Інформація про оновлення:</strong> {{ carriage.RenewalInfo }}</p>
+                <p><strong>Кондиціонер:</strong> {{ carriage.AirConditioning }}</p>
+                <a href="{% url 'passenger_carriage_edit' carriage.CarriageID %}" class="edit-btn">Редагувати</a>
+                <a href="/representation/carriages/" class="back-btn">Назад до списку</a>
+            </div>
+        {% elif error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

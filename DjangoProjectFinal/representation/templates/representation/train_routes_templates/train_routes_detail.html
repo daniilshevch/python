@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі маршруту</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Деталі маршруту</h1>
+        <p><strong>ID:</strong> {{ route.TrainRouteID }}</p>
+        <p><strong>Код:</strong> {{ route.NumberCode }}</p>
+        <p><strong>Повна назва:</strong> {{ route.FullConnectionName }}</p>
+        <p><strong>Формуюча гілка:</strong> {{ route.FormingRailwayBranchID }}</p>
+        <p><strong>Станція відправлення:</strong> {{ route.StartingStationID }}</p>
+        <p><strong>Час відправлення:</strong> {{ route.DepartureTime }}</p>
+        <p><strong>Станція прибуття:</strong> {{ route.EndingStationID }}</p>
+        <p><strong>Час прибуття:</strong> {{ route.ArrivalTime }}</p>
+        <p><strong>Частота:</strong> {{ route.TripFrequency }}</p>
+        <p><strong>Брендований:</strong> {{ route.IsBranded }}</p>
+        <p><strong>Назва бренду:</strong> {{ route.BrandedName }}</p>
+        <p><strong>Тип поїздки:</strong> {{ route.TripType }}</p>
+        <p><strong>Швидкість:</strong> {{ route.SpeedType }}</p>
+        <p><strong>Тип формування:</strong> {{ route.FormingType }}</p>
+        <p><strong>Тип частоти:</strong> {{ route.FrequencyType }}</p>
+        <a href="{% url 'train_route_edit' route.TrainRouteID %}" class="edit-link">Редагувати</a>
+        <a href="{% url 'train_routes_get' %}" class="back-btn">Назад до списку</a>
+    </div>
+</body>
+</html>

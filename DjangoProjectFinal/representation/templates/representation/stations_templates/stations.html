@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Station Operations</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Операції для Station</h1>
+        <ul>
+            <li><a href="{% url 'stations_get' %}">GET (всі станції)</a></li>
+            <li><a href="{% url 'stations_get_by_id' %}">GET (станція за ID)</a></li>
+            <li><a href="{% url 'stations_post' %}">POST (додати нову станцію)</a></li>
+            <li><a href="{% url 'stations_put' %}">PUT (оновити станцію)</a></li>
+            <li><a href="{% url 'stations_delete' %}">DELETE (видалити станцію)</a></li>
+        </ul>
+        <a href="/representation" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphs list</title>
+    <link rel="stylesheet" href="{% static 'representation/styles3.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>МЕНЮ ГРАФІКІВ</h1>
+        <div class="button-grid">
+
+            <a href="/analytics/plotly_carriage_by_manufacturer_and_type" class="button"> Вагони за типом і виробником(Plotly)</a>
+            <a href="/analytics/bokeh_carriages_by_manufacturer_and_type/" class="button">Вагони за типом і виробником(Bokeh)</a>
+            <a href="/analytics/plotly_carriage_by_year/" class="button">Вагони за роками виробництва(Plotly)</a>
+            <a href="/analytics/bokeh_carriage_by_year/" class="button">Вагони за роками виробництва(Bokeh)</a>
+            <a href="/analytics/plotly_railway_branches_by_stations" class="button">Залізничні філії за кількістю станцій(Plotly)</a>
+            <a href="/analytics/bokeh_railway_branches_by_stations/" class="button">Залізничні філії за кількістю станцій(Bokeh)</a>
+            <a href="/analytics/plotly_station_by_time" class="button">Станції поїздів за тривалістю стоянки(Plotly)</a>
+            <a href="/analytics/bokeh_station_by_time/" class="button">Станції поїздів за тривалістю стоянки(Bokeh)</a>
+            <a href="/analytics/plotly_stations_of_train" class="button">Кількість станцій, через які проходять поїзди(Plotly)</a>
+            <a href="/analytics/bokeh_stations_of_train/" class="button">Кількість станцій, через які проходять поїзди(Bokeh)</a>
+            <a href="/analytics/plotly_trains_on_station" class="button">Кількість поїздів, що проходять повз станцію(Plotly)</a>
+            <a href="/analytics/bokeh_trains_on_station/" class="button">Кількість поїздів, що проходять повз станцію(Bokeh)</a>
+            <a href="/analytics/plotly_carriage_by_year_interactive/" class="button">Інтерактивний графік Plotly</a>
+            <a href="/analytics/carriages_by_manufacturer_and_type_interactive" class="button">Інтерактивний графік Bokeh</a>
+            <a href="/analytics/all_graphs/" class="button">Консолідація графіків(Plotly)</a>
+            <a href="/analytics/all_bokeh_graphs/" class="button">Консолідація графіків(Bokeh)</a>
+        </div>
+
+        <div class="back-button-container">
+            <a href="/representation/menu" class="back-button">Повернутися в головне меню</a>
+        </div>
+    </div>
+
+    <style>
+        .back-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #e74c3c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+</body>
+</html>

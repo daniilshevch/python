@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вагони за типом і виробником</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Кругова діаграма: Вагони за типом і виробником</h1>
+
+    <div id="plotly-graph" style="width: 100%; height: 500px;"></div>
+
+    <div>
+        <button onclick="switchToBarChart()">Перемкнути на гістограму</button>
+        <button onclick="switchToPieChart()">Перемкнути на кругову діаграму</button>
+    </div>
+
+    <script>
+        const graphJSON = {{ graph_json|safe }};
+        let currentGraphType = 'pie';
+
+        Plotly.newPlot('plotly-graph', graphJSON.data, graphJSON.layout);
+
+        function switchToBarChart() {
+            if (currentGraphType === 'bar') return;
+            currentGraphType = 'bar';
+
+            const updatedData = [{
+                x: graphJSON.data[0].labels,
+                y: graphJSON.data[0].values,
+                type: 'bar'
+            }];
+
+            const updatedLayout = {
+                title: 'Гістограма: Вагони за типом і виробником',
+                xaxis: { title: 'Тип і виробник' },
+                yaxis: { title: 'Кількість вагонів' },
+                template: 'plotly_white'
+            };
+
+            Plotly.react('plotly-graph', updatedData, updatedLayout);
+        }
+
+        function switchToPieChart() {
+            if (currentGraphType === 'pie') return;
+            currentGraphType = 'pie';
+
+            Plotly.react('plotly-graph', graphJSON.data, graphJSON.layout);
+        }
+    </script>
+</body>
+</html>

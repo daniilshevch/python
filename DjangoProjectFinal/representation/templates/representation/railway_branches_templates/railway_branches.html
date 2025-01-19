@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailwayBranch Operations</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Операції для RailwayBranch</h1>
+        <ul>
+            <li><a href="{% url 'railway_branches_get' %}">GET (всі філії)</a></li>
+            <li><a href="{% url 'railway_branches_get_by_id' %}">GET (філія за ID)</a></li>
+            <li><a href="{% url 'railway_branches_post' %}">POST (додати нову філію)</a></li>
+            <li><a href="{% url 'railway_branches_put' %}">PUT (оновити філію)</a></li>
+            <li><a href="{% url 'railway_branches_delete' %}">DELETE (видалити філію)</a></li>
+        </ul>
+        <a href="/representation" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

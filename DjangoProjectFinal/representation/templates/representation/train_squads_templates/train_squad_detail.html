@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Деталі складу поїзда</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Деталі складу поїзда</h1>
+        <p><strong>ID складу поїзда:</strong> {{ train_squad.TrainSquadID }}</p>
+        <p><strong>Формуюча станція депо:</strong> {{ train_squad.FormingDepotStationID }}</p>
+        <a href="{% url 'train_squad_edit' train_squad.TrainSquadID %}" class="edit-link">Редагувати</a>
+        <a href="{% url 'train_squads_get' %}" class="back-btn">Назад до списку</a>
+    </div>
+</body>
+</html>

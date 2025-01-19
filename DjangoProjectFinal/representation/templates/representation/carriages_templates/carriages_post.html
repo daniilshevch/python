@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST PassengerCarriage</title>
+</head>
+<body>
+    <h1>Додати новий PassengerCarriage</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="type_of">Тип:</label>
+        <input type="text" name="type_of" id="type_of" required><br>
+
+        <label for="capacity">Місткість:</label>
+        <input type="number" name="capacity" id="capacity" required><br>
+
+        <label for="manufacturer">Виробник:</label>
+        <input type="text" name="manufacturer" id="manufacturer" required><br>
+
+        <button type="submit">Додати</button>
+    </form>
+    <a href="/representation/carriages/">Назад</a>
+</body>
+</html>

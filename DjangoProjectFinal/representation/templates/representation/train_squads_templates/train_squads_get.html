@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список складів поїздів</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Список складів поїздів</h1>
+        <ul class="train-squad-list">
+            {% for train_squad in train_squads %}
+            <li>
+                <a href="{% url 'train_squad_detail' train_squad.TrainSquadID %}" class="detail-link">
+                    {{ train_squad.TrainSquadID }}
+                </a>
+                |
+                <a href="{% url 'train_squad_edit' train_squad.TrainSquadID %}" class="edit-link">Редагувати</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'train_squad_add' %}" class="add-btn">Додати склад</a>
+        <a href="{% url 'train_squads' %}" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

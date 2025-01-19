@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PassengerCarriage Operations</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Операції для PassengerCarriage</h1>
+        <ul>
+            <li><a href="{% url 'carriages_get' %}">GET (всі вагони)</a></li>
+            <li><a href="{% url 'carriages_get_by_id' %}">GET (вагон за ID)</a></li>
+            <li><a href="{% url 'carriages_post' %}">POST (додати новий вагон)</a></li>
+            <li><a href="{% url 'carriages_put' %}">PUT (оновити вагон)</a></li>
+            <li><a href="{% url 'carriages_delete' %}">DELETE (видалити вагон)</a></li>
+        </ul>
+        <a href="/representation/" class="back-btn">Повернутись на головну</a>
+    </div>
+</body>
+</html>

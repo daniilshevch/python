@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видалити вагон</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Видалити вагон</h1>
+        <form method="post" class="form-container">
+            {% csrf_token %}
+            <label for="id" class="form-label">ID вагона:</label>
+            <input type="number" id="id" name="id" class="form-input" required>
+            <button type="submit" class="submit-btn delete-btn">Видалити</button>
+        </form>
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+        <a href="/representation/carriages/" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

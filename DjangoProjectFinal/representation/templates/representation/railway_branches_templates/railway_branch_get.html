@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список філій</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Список філій</h1>
+        <ul class="branch-list">
+            {% for branch in branches %}
+            <li>
+                <a href="{% url 'railway_branch_detail' branch.RailwayBranchID %}" class="detail-link">
+                    {{ branch.RailwayBranchID }} - {{ branch.Title }}
+                </a>
+                |
+                <a href="{% url 'railway_branch_edit' branch.RailwayBranchID %}" class="edit-link">Редагувати</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'railway_branch_add' %}" class="add-btn">Додати філію</a>
+        <a href="{% url 'railway_branches' %}" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

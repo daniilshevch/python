@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Видалити маршрут</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Видалити маршрут</h1>
+        <form method="post" class="form-container">
+            {% csrf_token %}
+            <label for="id">ID маршруту:</label>
+            <input type="number" id="id" name="id" required>
+            <button type="submit" class="submit-btn">Видалити</button>
+        </form>
+        {% if error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+        <a href="{% url 'train_routes' %}" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

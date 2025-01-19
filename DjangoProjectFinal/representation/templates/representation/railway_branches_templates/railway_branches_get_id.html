@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET філія за ID</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Отримати філію за ID</h1>
+        <form method="get" class="form-container">
+            <label for="id">Введіть ID філії:</label>
+            <input type="number" id="id" name="id" required>
+            <button type="submit" class="submit-btn">Шукати</button>
+        </form>
+        {% if branch %}
+            <h2>Результат:</h2>
+            <p>ID: {{ branch.RailwayBranchID }}</p>
+            <p>Назва: {{ branch.Title }}</p>
+            <p>Локація офісу: {{ branch.OfficeLocation }}</p>
+            <a href="{% url 'railway_branch_edit' branch.RailwayBranchID %}" class="edit-link">Редагувати</a>
+        {% elif error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+        <a href="{% url 'railway_branches' %}" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

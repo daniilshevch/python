@@ -1,0 +1,220 @@
+/* Загальні стилі */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Заголовки */
+h1, h2 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Контейнер */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Список операцій */
+ul.carriage-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+ul.carriage-list li {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+ul.carriage-list li a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+ul.carriage-list li a:hover {
+    color: #2ecc71;
+}
+
+/* Кнопки */
+.operation-btn,
+.add-btn,
+.back-btn {
+    display: inline-block;
+    margin: 10px 5px;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Стиль для кнопки "Список операцій" */
+.operation-btn {
+    background-color: #007BFF;
+}
+
+.operation-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Стиль для кнопки "Додати вагон" */
+.add-btn {
+    background-color: #28a745;
+}
+
+.add-btn:hover {
+    background-color: #218838;
+}
+
+/* Кнопка повернення */
+.back-btn {
+    background-color: #e74c3c;
+}
+
+.back-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Загальні стилі */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Заголовки */
+h1, h2 {
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Контейнер */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Список операцій */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+ul li a:hover {
+    color: #2ecc71;
+}
+
+/* Форми */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #2ecc71;
+}
+
+/* Кнопка повернення */
+a.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #e74c3c;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+a.back-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Стиль для кнопки "Список операцій" */
+.operation-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Синій колір */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.operation-btn:hover {
+    background-color: #0056b3; /* Темніший синій при наведенні */
+}
+
+/* Стиль для кнопки "Додати вагон" */
+.add-btn {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px 20px;
+    background-color: #28a745; /* Зелений колір */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.add-btn:hover {
+    background-color: #218838; /* Темніший зелений при наведенні */
+}
+
+
+
+
+
+
+
+

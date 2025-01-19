@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET станція за ID</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Отримати станцію за ID</h1>
+        <form method="get" class="form-container">
+            <label for="id">Введіть ID станції:</label>
+            <input type="number" id="id" name="id" required>
+            <button type="submit" class="submit-btn">Шукати</button>
+        </form>
+        {% if station %}
+            <h2>Результат:</h2>
+            <p>ID: {{ station.StationID }}</p>
+            <p>Назва: {{ station.Title }}</p>
+            <p>Тип: {{ station.TypeOf }}</p>
+            <p>Залізнична філія: {{ station.RailwayBranchID }}</p>
+            <p>Депо вагонів: {{ station.CarriageDepaut }}</p>
+            <p>Депо локомотивів: {{ station.LocomotiveDepaut }}</p>
+            <a href="{% url 'station_edit' station.StationID %}" class="edit-link">Редагувати</a>
+        {% elif error %}
+            <p class="error-msg">{{ error }}</p>
+        {% endif %}
+        <a href="{% url 'stations' %}" class="back-btn">Назад</a>
+    </div>
+</body>
+</html>

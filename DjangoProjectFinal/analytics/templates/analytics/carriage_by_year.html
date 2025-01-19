@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графік вагонів</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Графік вагонів за роками виробництва</h1>
+    <div id="plotly_chart" style="width:100%; height:500px;"></div>
+
+    <script>
+        const graphData = JSON.parse(`{{ graph_json|escapejs }}`);
+
+        Plotly.newPlot('plotly_chart', graphData.data, graphData.layout);
+    </script>
+</body>
+</html>

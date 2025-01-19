@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if form.instance.pk %}Редагувати запис{% else %}Додати запис{% endif %}</title>
+    <link rel="stylesheet" href="{% static 'representation/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>{% if form.instance.pk %}Редагувати запис{% else %}Додати запис{% endif %}</h1>
+        <form method="post" class="form-container">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-btn">Зберегти</button>
+        </form>
+        <a href="{% url 'train_routes_with_squads_get' %}" class="back-btn">Назад до списку</a>
+    </div>
+</body>
+</html>
